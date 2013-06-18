@@ -69,7 +69,7 @@
 		<tr><td></td></tr>
 		<tr>
 			<td>
-				<a href="next.html">
+				<a href="next.jsp">
 					<button>Start!</button>
 				</a>
 			<form action="/risk/create" method="POST">
