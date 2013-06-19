@@ -17,7 +17,7 @@
         <div id="Blue"></div>
         <div id="Yellow"></div>
         <div id="Green"></div>
-		<div id="Purple"></div>
+		<div id="Purple"></div> 
         <div id="Orange"></div>
 		
 	<table>
