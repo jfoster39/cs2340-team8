@@ -8,7 +8,7 @@ import java.util.*;
  */
 
 public class StarSystem {
-    ArrayList<Planet> planets;
+    private ArrayList<Planet> planets;
     private Player owner;
     private final static int SYSTEM_SIZE = 5;
 
@@ -59,4 +59,18 @@ public class StarSystem {
     public Player getOwner(){
     	return owner;
     }
+
+    /**
+    * Returns the ArrayList of planets in this star system
+    * @return ArrayList of planets in the star system
+    */
+    public ArrayList<Planet> getPlanets(){
+        return planets;
+    }
+
+
+
+
+
+
 }
