@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns={
         "/playerSelection", // GET
+		"/game", //GAME
         "/create", // POST 
         "/update/*", // PUT
         "/delete/*" // DELETE
@@ -42,6 +43,9 @@ import javax.servlet.http.HttpServletResponse;
         } else if (operation.equalsIgnoreCase("RANDOM")) {
 			System.out.println("Delegating to doRandom().");
 			doRandom(request, response);
+		} else if (operation.equalsIgnoreCase("GAME")) {
+			System.out.println("Delegating to doGame().");
+			doGame(request, response);
 		} else {
             String name = request.getParameter("name");
             String color = request.getParameter("color");
@@ -75,6 +79,16 @@ import javax.servlet.http.HttpServletResponse;
 		Collections.shuffle(players);
         RequestDispatcher dispatcher = 
             getServletContext().getRequestDispatcher("/playerSelection.jsp");
+        dispatcher.forward(request,response);
+    }
+	
+	protected void doGame(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws IOException, ServletException {
+        System.out.println("In doGame()");
+        request.setAttribute("players", players);
+        RequestDispatcher dispatcher = 
+            getServletContext().getRequestDispatcher("/next.jsp");
         dispatcher.forward(request,response);
     }
 	

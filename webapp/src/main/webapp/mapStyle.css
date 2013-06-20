@@ -4,9 +4,45 @@ body {
     background-repeat: no-repeat;
 }
 
-div {
-    height:100px;
-    width:100px;
-    display: inline-block;
-	border-radius: 5px;
+.container {
+	position: relative;
+}
+
+.planet {
+	position: absolute;
+	width: .8em; height: .8em; 
+    -webkit-border-radius: 0.4em; -moz-border-radius: 0.4em;
+}
+#planet1 {
+    top: 90px;
+    left: 121px; 
+    background-color:red;
+}
+
+#planet2 {
+	position: absolute;
+    top: 90px;
+    left: 135px; 
+    background-color:blue;
+}
+
+#planet3 {
+	position: absolute;
+    top: 90px;
+    left: 150px; 
+    background-color:orange;
+}
+
+#planet4 {
+	position: absolute;
+    top: 90px;
+    left: 165px; 
+    background-color:yellow;
+}
+
+#planet5 {
+	position: absolute;
+    top: 90px;
+    left: 180px; 
+    background-color:purple;
 }

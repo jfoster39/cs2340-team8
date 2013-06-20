@@ -3,6 +3,7 @@
 <%@ page import="edu.gatech.cs2340.risk.model.Planet" %>
 <%@ page import="java.util.*" %>
 
+
 <% ArrayList<Player> players = 
     (ArrayList<Player>) request.getAttribute("players"); %>
 
@@ -13,16 +14,35 @@
         <link rel="stylesheet" type="text/css" href="mapStyle.css"/>
     </head>
     <body>
-
-        <img src="images/starSystem.gif" width="200" height="200" usemap="#starSystem">
-
-        <map name="starSystem">
-            <area color="red" shape="circle" coords="128, 96, 5" alt="planet1" href="">
-            <area shape="circle" coords="140, 96, 5" alt="planet2" href="">
-            <area shape="circle" coords="154, 96, 5" alt="planet3" href="">
-            <area shape="circle" coords="171, 96, 6" alt="planet4" href="">
-            <area shape="circle" coords="187, 95, 7" alt="planet5" href="">
-        </map>
+		<table>
+			<tr>
+				<td id="0">
+					<div class="container" id="starSystem1">
+						<img src="images/starSystem.gif" width="200" height="200">
+						<div class="planet" id="planet1"></div>
+						<div class="planet" id="planet2"></div>
+						<div class="planet" id="planet3"></div>
+						<div class="planet" id="planet4"></div>
+						<div class="planet" id="planet5"></div>
+					</div>
+				</td>
+				<td id="3"></td>
+				<td id="1"></td>
+			</tr>
+			<tr>
+				<td height="200"><td>
+			</tr>
+			<tr>
+				<td id="4"></td>
+				<td id="2"></td>
+				<td id="5"></td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			for (var i = 1; i < <%= players.size() %>; i++) {
+				$('#starSystem1').clone().appendTo('#' + i);
+			}
+		</script>
 
 
     </body>

@@ -40,6 +40,7 @@
 				<input id="playerColor" type="text" style="background-color: <%= player.getColor()%>" readonly="readonly"/>
 				<input type="hidden" name="color" value="<%= player.getColor() %>"/>
 			  </td>
+
 			  <% int totalFleets = 35;
 				 if (players.size() == 4)
 					totalFleets = 30;
@@ -81,9 +82,13 @@
 		<tr><td></td></tr>
 		<tr>
 			<td>
+
+			<form action="/risk/game" method="POST">
+				<input type="hidden" name="operation" value="GAME">
 				<a href="next.jsp">
 					<button>Start!</button>
 				</a>
+			</form>
 			<form action="/risk/create" method="POST">
 				<input type="hidden" name="operation" value="RANDOM">
 				<input type="submit" value="Randomize Order"/>
