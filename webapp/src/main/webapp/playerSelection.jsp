@@ -40,14 +40,14 @@
 				<input id="playerColor" type="text" style="background-color: <%= player.getColor()%>" readonly="readonly"/>
 				<input type="hidden" name="color" value="<%= player.getColor() %>"/>
 			  </td>
-			  <% int numOfFleets = 35;
+			  <% int totalFleets = 35;
 				 if (players.size() == 4)
-					numOfFleets = 30;
+					totalFleets = 30;
 				 else if (players.size() == 5)
-					numOfFleets = 25;
+					totalFleets = 25;
 				 else if (players.size() == 6)
-					numOfFleets = 20;
-				 player.setNumFleets(numOfFleets);
+					totalFleets = 20;
+				 player.setTotalFleets(totalFleets);
 			  %>
 			  
 			  

@@ -112,4 +112,11 @@ import javax.servlet.http.HttpServletResponse;
         return Integer.parseInt(idStr);
     }
 
+    protected void doAttack(HttpServletRequest request, 
+        HttpServletResponse response) {
+        // TODO
+    }
+
+    
+
 }

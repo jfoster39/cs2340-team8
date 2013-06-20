@@ -5,8 +5,7 @@ package edu.gatech.cs2340.risk.model;
 */
 public class Player {
 	private String name;
-	//private Planet planet;
-	private int numFleets;
+	private int totalFleets;
 	private String color;
 
 	/**
@@ -25,22 +24,23 @@ public class Player {
 	*/
 	
 	public int getFleets(){
-		return numFleets;
+		return totalFleets;
 	}
 	
 	/**
 	* Decrements the number of fleets a player has by 1
 	*/
 	public void removeFleet(){
-		numFleets--;
+		totalFleets--;
 	}
 	/**
 	* This method set's the number of fleets a player has to the Integer it takes in as a parameter
-	* @param newNumFleets: the new number of fleets the player will have
+	* @param newtotalFleets: the new number of fleets the player will have
 	*/
-	public void setNumFleets(int newNumFleets){
-		numFleets = newNumFleets;
+	public void setTotalFleets(int newTotalFleets){
+		totalFleets = newTotalFleets;
 	}
+
 	/**
 	* This method return the Player's current name
 	* @return String name of the player

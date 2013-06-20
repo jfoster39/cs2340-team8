@@ -13,9 +13,11 @@ public class Planet
 
     private Planet prevPlanet, nextPlanet;
     private Player owner;
+    private int numFleets; 
 
-    public Planet(Player owner) {
+    public Planet(Player owner, int numFleets) {
         this.owner = owner;
+        this.numFleets = numFleets; 
     }
 
     public void setPrevPlanet(Planet prevPlanet) {
@@ -40,5 +42,13 @@ public class Planet
 
     public Player getOwner() {
         return owner;
+    }
+
+    public void setFleets(int numFleets) {
+        this.numFleets = numFleets;
+    }
+
+    public int getFleets() {
+        return numFleets;
     }
 }
