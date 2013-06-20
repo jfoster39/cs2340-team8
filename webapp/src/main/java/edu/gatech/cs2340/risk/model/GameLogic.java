@@ -8,13 +8,12 @@ import java.util.*;
 public class GameLogic
 {
 
-
+    private int numPlayers;
+    ArrayList<StarSystem> systems;
+    
     public GameLogic (ArrayList<Player> players) {
-        int playerSize = players.size();
-
-        for (Player player : players) {
-            createStarSystem(player);
-        }
+        numPlayers = players.size();
+        initializeStarSystem();
 
     }
     /**
@@ -22,9 +21,10 @@ public class GameLogic
      * @param player
      * @return
      */
-    public StarSystem createStarSystem(Player player) {
-        
-        return null;
+    public ArrayList<StarSystem> initializeStarSystems(){        
+        for(Player current: players){
+            systems.add(new StarSystem(current));
+        }
     }
     
 

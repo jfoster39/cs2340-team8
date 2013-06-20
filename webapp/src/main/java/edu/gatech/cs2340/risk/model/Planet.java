@@ -1,13 +1,9 @@
 package edu.gatech.cs2340.risk.model;
-
-//Brad's comment x 2
-// some more comments
-
-// Added stuff
 /**
  * This class contains pointers to previous and next planets in its star system
- *
+ * This class defines a Planet in our game
  */
+
 public class Planet
 {
 
@@ -15,39 +11,36 @@ public class Planet
     private Player owner;
     private int numFleets; 
 
+    /**
+    * Set's the Planet's owner and number of fleets to the variables passed in
+    */
+
     public Planet(Player owner, int numFleets) {
         this.owner = owner;
         this.numFleets = numFleets; 
     }
-
-    public void setPrevPlanet(Planet prevPlanet) {
-        this.prevPlanet = prevPlanet;
-    }
+    /**
+    * Setter for the owner of this planet
+    */
     
-    public void setNextPlanet(Planet nextPlanet) {
-        this.nextPlanet = nextPlanet;
-    }
-    
-   public Planet getPrevPlanet() {
-       return prevPlanet;
-   }
-   
-    public Planet getNextPlanet() {
-        return nextPlanet;
-    }
-
     public void setOwner (Player owner) {
         this.owner = owner;
     }
-
+    /**
+    * Get's the owner for the Planet
+    */
     public Player getOwner() {
         return owner;
     }
-
+    /**
+    * Set's the number of fleets on a Planet
+    */
     public void setFleets(int numFleets) {
         this.numFleets = numFleets;
     }
-
+    /**
+    * Return the number of fleets on the Planet
+    */
     public int getFleets() {
         return numFleets;
     }
