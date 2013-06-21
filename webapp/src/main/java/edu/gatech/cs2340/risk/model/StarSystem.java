@@ -21,7 +21,7 @@ public class StarSystem {
     	this.owner = owner;
 		planets = new ArrayList<Planet>(SYSTEM_SIZE);
 		for (int i=0; i<SYSTEM_SIZE; i++) {
-            Planet planet = new Planet(owner, owner.getFleets());
+            Planet planet = new Planet(owner, owner.getFleets() / 5);
             planets.add(planet);
         }
     }

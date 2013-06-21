@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background: black;
     background-image: url('images/mapBackground.jpg');
     background-repeat: no-repeat;
 }
@@ -27,181 +27,181 @@ span {
 #planet1-1 {
     top: 90px;
     left: 121px; 
-    background-color:red;
+    background:red;
 }
 
 #planet1-2 {
     top: 90px;
     left: 135px; 
-    background-color:red;
+    background:red;
 }
 
 #planet1-3 {
     top: 90px;
     left: 150px; 
-    background-color:red;
+    background:red;
 }
 
 #planet1-4 {
     top: 90px;
     left: 165px; 
-    background-color:red;
+    background:red;
 }
 
 #planet1-5 {
     top: 90px;
     left: 180px; 
-    background-color:red;
+    background:red;
 }
 
 #planet2-1 {
     top: 90px;
     left: 121px; 
-    background-color:blue;
+    background:blue;
 }
 
 #planet2-2 {
     top: 90px;
     left: 135px; 
-    background-color:blue;
+    background:blue;
 }
 
 #planet2-3 {
     top: 90px;
     left: 150px; 
-    background-color:blue;
+    background:blue;
 }
 
 #planet2-4 {
     top: 90px;
     left: 165px; 
-    background-color:blue;
+    background:blue;
 }
 
 #planet2-5 {
     top: 90px;
     left: 180px; 
-    background-color:blue;
+    background:blue;
 }
 
 #planet3-1 {
     top: 90px;
     left: 121px; 
-    background-color:orange;
+    background:orange;
 }
 
 #planet3-2 {
     top: 90px;
     left: 135px; 
-    background-color:orange;
+    background:orange;
 }
 
 #planet3-3 {
     top: 90px;
     left: 150px; 
-    background-color:orange;
+    background:orange;
 }
 
 #planet3-4 {
     top: 90px;
     left: 165px; 
-    background-color:orange;
+    background:orange;
 }
 
 #planet3-5 {
     top: 90px;
     left: 180px; 
-    background-color:orange;
+    background:orange;
 }
 
 #planet4-1 {
     top: 90px;
     left: 121px; 
-    background-color:yellow;
+    background:yellow;
 }
 
 #planet4-2 {
     top: 90px;
     left: 135px; 
-    background-color:yellow;
+    background:yellow;
 }
 
 #planet4-3 {
     top: 90px;
     left: 150px; 
-    background-color:yellow;
+    background:yellow;
 }
 
 #planet4-4 {
     top: 90px;
     left: 165px; 
-    background-color:yellow;
+    background:yellow;
 }
 
 #planet4-5 {
     top: 90px;
     left: 180px; 
-    background-color:yellow;
+    background:yellow;
 }
 
 #planet5-1 {
     top: 90px;
     left: 121px; 
-    background-color:purple;
+    background:purple;
 }
 
 #planet5-2 {
     top: 90px;
     left: 135px; 
-    background-color:purple;
+    background:purple;
 }
 
 #planet5-3 {
     top: 90px;
     left: 150px; 
-    background-color:purple;
+    background:purple;
 }
 
 #planet5-4 {
     top: 90px;
     left: 165px; 
-    background-color:purple;
+    background:purple;
 }
 
 #planet5-5 {
     top: 90px;
     left: 180px; 
-    background-color:purple;
+    background:purple;
 }
 
 #planet6-1 {
     top: 90px;
     left: 121px; 
-    background-color:green;
+    background:green;
 }
 
 #planet6-2 {
     top: 90px;
     left: 135px; 
-    background-color:green;
+    background:green;
 }
 
 #planet6-3 {
     top: 90px;
     left: 150px; 
-    background-color:green;
+    background:green;
 }
 
 #planet6-4 {
     top: 90px;
     left: 165px; 
-    background-color:green;
+    background:green;
 }
 
 #planet6-5 {
     top: 90px;
     left: 180px; 
-    background-color:green;
+    background:green;
 }
 
 

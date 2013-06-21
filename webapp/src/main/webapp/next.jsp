@@ -6,12 +6,14 @@
 
 
 <% ArrayList<Player> players = 
-    (ArrayList<Player>) request.getAttribute("players");
-    
-   GameLogic game = new GameLogic(players); 
-%>
+    (ArrayList<Player>) request.getAttribute("players"); 
+   
+   ArrayList<StarSystem> systems = 
+    (ArrayList<StarSystem>) request.getAttribute("systems"); 
+  
+   GameLogic game = (GameLogic) request.getAttribute("game"); %>
 
-	
+
 	
 <html>
     <head>
@@ -63,17 +65,20 @@
 				$(this).attr('id', 'startSystem' + (index + 1));
 			})
 			
-			for (var starSystem = 1; starSystem < <%= players.size() + 1%>; starSystem++) {
+			<% for (int i = 0; i <  systems.size(); i++) {
+					 StarSystem currentSystem =  systems.get(i); %>
 				$(".planetTemp").each( function(index) {
+					var newId = 'planet' + (<%=i%>+1) + (this).id;
+					var newColor = '<%= currentSystem.getOwner().getColor() %>';
 					$(this).removeAttr('class');
 					$(this).attr('class', 'planet');
-					$(this).attr('id', 'planet' + starSystem + (this).id);
+					$(this).attr('id', newId);
+					$(this).css("background", newColor);
 					if ((index + 1)%5 == 0) {
 						return false;
 					}
 				})
-			}
-			
+			<%}%>
 		</script>
 
 
