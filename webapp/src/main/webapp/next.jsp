@@ -23,11 +23,21 @@
 				<td id="0" height="200" width="200">
 					<div class="container" id="starSystem1">
 						<img src="images/starSystem.gif" width="200" height="200">
-						<div class="planetTemp" id="-1"></div>
-						<div class="planetTemp" id="-2"></div>
-						<div class="planetTemp" id="-3"></div>
-						<div class="planetTemp" id="-4"></div>
-						<div class="planetTemp" id="-5"></div>
+						<div class="planetTemp" id="-1">
+							<a href=""><span></span></a> <!--Using empty span to make div clickable -->
+						</div>
+						<div class="planetTemp" id="-2">
+							 <a href=""><span></span></a>
+						</div>
+						<div class="planetTemp" id="-3">
+							 <a href=""><span></span></a>
+						</div>
+						<div class="planetTemp" id="-4">
+							 <a href=""><span></span></a>
+						</div>
+						<div class="planetTemp" id="-5">
+							 <a href=""><span></span></a>
+						</div>
 					</div>
 				</td>
 				<td id="3" height="200" width="200"></td>
