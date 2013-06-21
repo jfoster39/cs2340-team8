@@ -7,28 +7,20 @@ import java.util.*;
  */
 public class GameLogic
 {
-
     private int numPlayers;
-    ArrayList<StarSystem> allTheSystems;
+    private ArrayList<StarSystem> allSystems;
     private ArrayList<Player> players;
     
     public GameLogic (ArrayList<Player> players) {
         this.players = players;
         numPlayers = players.size();
-        initializeStarSystems();
-
-    }
-    /**
-     * Creates a linked system of planets for each player
-     * @param player
-     * @return
-     */
-    public ArrayList<StarSystem> initializeStarSystems(){        
-        for(Player current: players){
-            allTheSystems.add(new StarSystem(current));
+        
+		for(Player player: players){
+            allSystems.add(new StarSystem(player));
         }
-        return allTheSystems;
-    }
-    
-
+	}
+	
+	public ArrayList<StarSystem> getAllSystems() {
+		return allSystems;
+	}
 }

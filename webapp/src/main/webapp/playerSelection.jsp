@@ -86,9 +86,11 @@
 			<form action="/risk/game" method="POST">
 				<input type="hidden" name="operation" value="GAME">
 				<a href="next.jsp">
-					<button>Start!</button>
+					<input id='start' type="submit" value="Start!">
 				</a>
 			</form>
+			
+			
 			<form action="/risk/create" method="POST">
 				<input type="hidden" name="operation" value="RANDOM">
 				<input type="submit" value="Randomize Order"/>
