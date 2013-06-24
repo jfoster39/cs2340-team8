@@ -7,6 +7,7 @@ public class Player {
 	private String name;
 	private int totalFleets;
 	private String color;
+	private int numPlanets, moreFleets //
 
 	/**
 	* Sets a Player's constructor to take in a Name, and a Color
@@ -17,12 +18,16 @@ public class Player {
 		this.name = name;
 		this.color = color;
 		this.totalFleets = totalFleets;
+		numPlanets = 5; //
+		moreFleets = 0; //
 	}
 
 	public Player(String name, String color){
 		this.name = name;
 		this.color = color;
 		totalFleets = 35;
+		numPlanets = 5; //
+		moreFleets = 0; //
 	}
 
 	/**
@@ -46,6 +51,23 @@ public class Player {
 	*/
 	public void setTotalFleets(int newTotalFleets){
 		totalFleets = newTotalFleets;
+	}
+	
+	public int calcMoreFleets(){
+		
+		moreFleets = 0;
+		
+		if(numPlanets < 9){
+			moreFleets = 3;
+		}
+		else{
+			int fleetsToAdd = numFleets / 3;
+			if(fleetsToAdd > 0){
+				moreFleets = fleetsToAdd;
+			}
+		}
+		
+		return moreFleets;
 	}
 
 	/**
