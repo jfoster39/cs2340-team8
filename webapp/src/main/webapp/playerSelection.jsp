@@ -19,7 +19,7 @@
         <div id="Green"></div>
 		<div id="Purple"></div> 
         <div id="Orange"></div>
-		
+
 	<table>
 		<tr>
 			<th>Name</th><th>Color</th><th>Fleets</th>
@@ -29,11 +29,11 @@
 		<tr>
 			<form action="/risk/update/<%= id %>" method="POST">
 			  <!-- hidden operation element to simulate HTTP PUT method in server -->
-			  
+
 			  <script type="text/javascript">
 				document.getElementById('<%= player.getColor() %>').style.display = "none";
 			  </script>
-			  
+
 			  <input type="hidden" name="operation" value="PUT"/>
 			  <td><input type="text" name="name" value="<%= player.getName() %>"/></td>
 			  <td>
@@ -50,8 +50,8 @@
 					totalFleets = 20;
 				 player.setTotalFleets(totalFleets);
 			  %>
-			  
-			  
+
+
 			  <td><%= player.getFleets() %></td>
 			<!--  <td><input type="submit" value="Update"/></td> -->
 			</form>
@@ -61,7 +61,7 @@
 				<input type="hidden" name="operation" value="DELETE"/>
 			<!--	<input type="submit" value="Delete"/> -->
 			  </form>
-			
+
 		</tr>			
 		<% } %>
 		<tr>			
@@ -100,8 +100,8 @@
         			</script>	
 				</a>
 			</form>
-			
-			
+
+
 			<form action="/risk/create" method="POST">
 				<input type="hidden" name="operation" value="RANDOM">
 				<input type="submit" value="Randomize Order"/>
@@ -109,7 +109,13 @@
 			</td>
 		</tr>
 	</table>
+<<<<<<< HEAD
+
+    </body>
+</html>
+=======
 			
     </body>
 </html>
 
+>>>>>>> a5dfd1af849379f9fe5954c717586f6478bf98bc
