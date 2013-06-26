@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class GameLogic
 {
-    private int numPlayers, turnCount;
+    private int numPlayers;
     private ArrayList<StarSystem> allSystems;
     private ArrayList<Player> players;
     
