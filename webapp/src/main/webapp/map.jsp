@@ -4,7 +4,10 @@
 <%@ page import="edu.gatech.cs2340.risk.model.StarSystem" %>
 <%@ page import="java.util.*" %>
 
-<%ArrayList<Player> players = (ArrayList<Player>) request.getAttribute("players"); %>
+<%ArrayList<Player> players = (ArrayList<Player>) request.getAttribute("players"); 
+  GameLogic game = (GameLogic) request.getAttribute("game");
+   Player currentPlayer = players.get(game.getTurn() % players.size());
+%>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -47,8 +50,8 @@
 </table>
 </form>
 
-</body>
-</body>
+<h1 align="center">It is <%= currentPlayer.getName() %>'s turn</h1>
+
 <p>&nbsp;</p>
 
 <!-- here are all of the Systems and their attributes listed below-->
@@ -81,9 +84,9 @@
 <p>Mars</p><ul>
   <p>numFleets, <span class="PlayerColor">owner</span></p>
   <p>&nbsp;</p>
-  <form id="form1" name="form1" method="post" action="">
+  <form id="form1" name="form1" method="put" action="/risk/update">
     <p>
-      <input type="submit" name="completeTurn" id="completeTurn" value="Finish Turn" />
+      <input type="submit" name="completeTurn" id="completeTurn" value="End Turn" />
     </p>
   </form>
 </ul>

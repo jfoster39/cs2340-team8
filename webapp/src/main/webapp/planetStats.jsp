@@ -2,12 +2,15 @@
 <%@ page import="edu.gatech.cs2340.risk.controller.*" %>
 <%@ page import="java.util.*" %>
 
-<% ArrayList<Player> players = 
-    (ArrayList<Player>) request.getAttribute("players"); 
+<% Player player = 
+    (Player) request.getAttribute("player"); 
    
    ArrayList<StarSystem> systems = 
     (ArrayList<StarSystem>) request.getAttribute("systems"); 
   
+  Planet planet = 
+    (Planet) request.getAttribute("planet");
+    
    GameLogic game = (GameLogic) request.getAttribute("game"); %>
 
 <html>
@@ -19,7 +22,8 @@
 
     </head>
 
-    <body> Planet's Owner is <%%>
+    <body> Planet's Owner is <%players%>
+
     </body>
 </html>
 
