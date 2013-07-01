@@ -70,7 +70,7 @@
 			function unblank(a) { if(a.value == "") a.value = a.defaultValue; }
 		</script>
 			<form action="/risk/create" method="POST">
-			  <td><input id="name2" type="text" name="name" value="Enter your name" onfocus="blank(this)" onblur="unblank(this)"/></td>
+			  <td><input id="name2" type="text" name="name" value="Enter your name" onFocus="blank(this)" onBlur="unblank(this)"/></td>
 			  <td>
 				<input id="colorBar" type="text" value="" readonly="readonly"/>
 				<input id="color" name="color" type="hidden" value=""/>

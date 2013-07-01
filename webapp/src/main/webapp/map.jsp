@@ -17,6 +17,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Star Galaxy</title>
+  
+  <script src="jquery.js"></script>
 
   <style type="text/css">
   .PlayerColor {
@@ -73,7 +75,7 @@
       <h1> System <%= (id+1) %></h1>
 	<% for (int k = 0; k < currentSystem.getPlanets().size(); k++) { %>
     <% Planet currentPlanet = currentSystem.getPlanets().get(k); %>
-      <form action="/risk/game/<%= id %>" method="POST">
+      <form action="/risk/create/<%= id %>" method="POST">
       <input type="hidden" name="operation" value="STATS" />
          	<tr>
             <td><%= currentPlanet.getName()%></td>
@@ -91,9 +93,9 @@
 </table>
 </form>
 
-  <form action="/risk/game" method="POST">    
-      <input type="submit" name="completeTurn" id="completeTurn" value="End Turn" />
-     <input type="hidden" name="operation" value="GAME" />
+  <form action="/risk/game" method="POST">
+  	  <input type="hidden" name="operation" value="GAME" />    
+      <input type="submit" value="End Turn" />
   </form>
 
 
