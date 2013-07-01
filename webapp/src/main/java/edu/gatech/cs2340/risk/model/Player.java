@@ -4,11 +4,8 @@ package edu.gatech.cs2340.risk.model;
 * This class represents a player in Star Galaxy Risk
 */
 public class Player {
-	private String name;
-	private int totalFleets;
-	private String color;
-	private int numPlanets;
-	private int numStarSystems;
+	private String name, color;
+	private int totalFleets, numPlanets, numStarSystems;
 
 	/**
 	* Sets a Player's constructor to take in a Name, and a Color

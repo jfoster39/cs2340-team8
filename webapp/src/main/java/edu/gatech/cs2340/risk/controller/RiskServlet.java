@@ -110,8 +110,6 @@ import javax.servlet.http.HttpServletResponse;
             getServletContext().getRequestDispatcher("/map.jsp");
         dispatcher.forward(request,response);
     }
-
-
     
     protected void doTurn(HttpServletRequest request,
                         HttpServletResponse response)
@@ -142,6 +140,7 @@ import javax.servlet.http.HttpServletResponse;
     protected void doPut(HttpServletRequest request,
                          HttpServletResponse response)
             throws IOException, ServletException {
+        System.out.println("In doPut()");
         String name = (String) request.getParameter("name");
         String color = (String)  request.getParameter("color");
         int id = getId(request);

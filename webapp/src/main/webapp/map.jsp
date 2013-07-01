@@ -6,24 +6,27 @@
 
 <%	
 	ArrayList<Player> players = (ArrayList<Player>) request.getAttribute("players"); 
-  	GameLogic game = (GameLogic) request.getAttribute("game");
-   	Player currentPlayer = players.get(game.getTurn() % players.size());
+  GameLogic game = (GameLogic) request.getAttribute("game");
+   Player currentPlayer = players.get(game.getTurn() % players.size());
 %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" import="java.sql.*" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-<style type="text/css">
-.PlayerColor {
-	color: #000;
-}
-.centertext {
-	text-align: center;
-}
-</style>
+  <title>Untitled Document</title>
+
+  <style type="text/css">
+  .PlayerColor {
+  	color: #000;
+  }
+  .centertext {
+  	text-align: center;
+  }
+  </style>
+
 </head>
 
 <body>
@@ -46,13 +49,14 @@
         <td><%= players.get(id).getFleets() %></td>
         <td><%= players.get(id).getNumPlanets() %></td>
       </tr>
-  <% } //ends for loop %>
+      </form>
+  <% } %>
 </table>
-</form>
+
 
 <h1 align="center">It is <%= currentPlayer.getName() %>'s turn</h1>
 
-<h2 align="center"> <%= currentPlayer.getName() %> has added <%= game.getNewFleetsToBeAdded() %> fleets</h2>
+<h2 align="center"><%= currentPlayer.getName() %> has added <%=  game.getNewFleetsToBeAdded() %> fleets</h2>
 
 
 <p>&nbsp;</p>
@@ -74,7 +78,9 @@
             <td><%= currentPlanet.getName()%></td>
             <td><%= currentPlanet.getOwner().getName() %></td>
             <td><%= currentPlanet.getFleets() %></td>
+            <input type="button" name="addNewFleets" value="Add New Fleets" />
           </tr>
+   
   <% } //ends inner for loop %>
   <% } //Ends outer loop %>
 </table>
@@ -86,6 +92,20 @@
     </p>
   </form>
 </ul>
+
+<input type="button" name="addNewFleets" value="Add New Fleets" />
+
+ <script type="text/javascript">
+
+      if (<%= game.getNewFleetsToBeAdded()%> == 0) {
+
+        for (var i=0; i<document.getElementsByName("addNewFleets").length; i++){
+          document.getElementsByName("addNewFleets")[i].style.display = "none";
+        }
+
+      }
+
+  </script>
 
 </body>
 </html>
