@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,16 +49,20 @@ import javax.servlet.http.HttpServletResponse;
         } else if (operation.equalsIgnoreCase("RANDOM")) {
 			System.out.println("Delegating to doRandom().");
 			doRandom(request, response);
-		} else if (operation.equalsIgnoreCase("GAME") || operation.equalsIgnoreCase("COMPLETETURN")) {
-			System.out.println("Delegating to doGame().");
+		} else if (operation.equalsIgnoreCase("GAME")) {
+			System.out.println("Delegating to doGame()");
 			doGame(request, response);
         } else if (operation.equalsIgnoreCase("STATS")) {
             System.out.println("Delegating to doPlanetStats");
             doPlanetStats(request, response);
-		} else if (operation.equalsIgnoreCase("TURN")) {
-            System.out.println("Delegating to doPlanetStats");
+		} else if (operation.equalsIgnoreCase("COMPLETETURN")) {
+            System.out.println("Delegating to doTurn()");
             doTurn(request, response); 
-        } else {
+        } else if (operation.equalsIgnoreCase("ADDFLEETS")){
+            System.out.println("Delegating to doAddFleetsToPlanet()");
+            doAddFleetsToPlanet(request, response);
+        }
+        else {
             String name = request.getParameter("name");
             String color = request.getParameter("color");
             players.add(players.size(), new Player(name, color));
@@ -124,6 +129,12 @@ import javax.servlet.http.HttpServletResponse;
             getServletContext().getRequestDispatcher("/map.jsp");
         dispatcher.forward(request, response);
     } 
+
+    protected void doAddFleetsToPlanet(HttpServletRequest request,
+                                    HttpServletResponse response) {
+        System.out.println("In doAddFleetsToPlanet()");
+        // TODO
+    }
 
     protected void doPlanetStats(HttpServletRequest request,
                                 HttpServletResponse response)
