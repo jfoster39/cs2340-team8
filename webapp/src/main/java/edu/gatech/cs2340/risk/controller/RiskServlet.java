@@ -183,7 +183,11 @@ import javax.servlet.http.HttpServletResponse;
 
         System.out.println("In doAttack()");
         int id = Integer.parseInt(request.getParameter("planetID"));
+        int attackPlanet = Integer.parseInt(request.getParameter("viablePlanets"));
+        int fleetAmount = Integer.parseInt(request.getParameter("fleetAmount"));
         String currentPlayerName = request.getParameter("currentPlayer");
+
+        66
         for (int i=0; i < planets.size(); i++ ) {
             if (currentPlayerName.equals(currentPlayer.getName())) {
                 if (i == id) {

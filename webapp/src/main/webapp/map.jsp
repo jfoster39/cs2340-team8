@@ -73,6 +73,10 @@
         <th width="66" scope="col">Planet Name</th>
         <th width="55" scope="col">Owner</th>
         <th width="62" scope="col">Number Of Fleets</th>
+        <th width="" scope="col"></th>
+        <th width="" scope="col"></th>
+        <th scope="col">Attack Source</th>
+        <th scope="col">Attack Amount</th>
       </tr>
       <h1> System <%= (id+1) %></h1>
       
@@ -108,20 +112,22 @@
               <input type="hidden" name="operation" value="ATTACK" />
               <input type="hidden" id="planetID" value="<%= currentPlanet.getOwner().getName()%>" name="currentPlayer" />
               <input type="hidden" id="planetID" name="planetID" value="<%= j %>" />
-              <input onclick="attackPrompt(planetID)" type="submit" id="Attack" name="attackButtons" value="Attack" disabled/>
+              <input type="submit" id="Attack" name="attackButtons" value="Attack" disabled/>
             </td>
             <td>
               <select name="viablePlanets" disabled>
                <% for (StarSystem system : game.getAllSystems()) {
                     for (Planet planet : system.getPlanets()) {
-                      if (planet.getOwner().equals(currentPlayer)) {%>
+                      if (planet.getOwner().equals(currentPlayer) 
+                        && (!currentPlanet.getOwner().equals(currentPlayer))) {%>
                         <option value="<%= planet.getName()%>"><%=planet.getName()%></option>
                       <%}
                   }
-               }%>
-
-                
+               }%> 
               </select>
+            </td>
+            <td>
+                <input type="range" name="fleetAmount" min="1" max="<%=currentPlanet.getFleets()%>" maxlength="3" size="1" disabled>
             </td>
             </form>
           </tr>  
@@ -146,6 +152,7 @@
 		for (var i=0; i<document.getElementsByName("attackButtons").length; i++){
           document.getElementsByName("attackButtons")[i].disabled = false;
           document.getElementsByName("viablePlanets")[i].disabled = false;
+          document.getElementsByName("fleetAmount")[i].disabled = false;
         }
 		document.getElementById("End Turn").disabled = false;
 	 }
@@ -153,6 +160,5 @@
 
   </script>
 
-  <script src="attackScript.js"></script>
 </body>
 </html>
