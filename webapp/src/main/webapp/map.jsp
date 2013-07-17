@@ -119,7 +119,8 @@
                <% for (StarSystem system : game.getAllSystems()) {
                     for (Planet planet : system.getPlanets()) {
                       if (planet.getOwner().equals(currentPlayer) 
-                        && (!currentPlanet.getOwner().equals(currentPlayer))) {%>
+                        && (!currentPlanet.getOwner().equals(currentPlayer))
+                          && (planet.getFleets() > 1)) {%>
                         <option value="<%= planet.getName()%>"><%=planet.getName()%></option>
                       <%}
                   }
