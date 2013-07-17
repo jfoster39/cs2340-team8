@@ -103,14 +103,27 @@
 			}
         	</script>	
             </td>
-            <td>
             <form action="/risk/create/<%= j %>" method="POST">
+            <td>
               <input type="hidden" name="operation" value="ATTACK" />
               <input type="hidden" id="planetID" value="<%= currentPlanet.getOwner().getName()%>" name="currentPlayer" />
               <input type="hidden" id="planetID" name="planetID" value="<%= j %>" />
-              <input type="submit" id="Attack" name="attackButtons" value="Attack" disabled/>
-            </form>
+              <input onclick="attackPrompt(planetID)" type="submit" id="Attack" name="attackButtons" value="Attack" disabled/>
             </td>
+            <td>
+              <select name="viablePlanets" disabled>
+               <% for (StarSystem system : game.getAllSystems()) {
+                    for (Planet planet : system.getPlanets()) {
+                      if (planet.getOwner().equals(currentPlayer)) {%>
+                        <option value="<%= planet.getName()%>"><%=planet.getName()%></option>
+                      <%}
+                  }
+               }%>
+
+                
+              </select>
+            </td>
+            </form>
           </tr>  
          
   	<% } //ends inner for loop %>
@@ -132,10 +145,14 @@
         }
 		for (var i=0; i<document.getElementsByName("attackButtons").length; i++){
           document.getElementsByName("attackButtons")[i].disabled = false;
+          document.getElementsByName("viablePlanets")[i].disabled = false;
         }
 		document.getElementById("End Turn").disabled = false;
 	 }
+
+
   </script>
 
+  <script src="attackScript.js"></script>
 </body>
 </html>
