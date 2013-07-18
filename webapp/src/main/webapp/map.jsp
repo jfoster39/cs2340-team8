@@ -56,7 +56,7 @@
   <% } %>
 </table>
 
-
+<p align="center"><%= game.getLog() %></p>
 <h1 align="center">It is <%= currentPlayer.getName() %>'s turn</h1>
 
 <h2 align="center"><%= currentPlayer.getName() %> has <%=  game.getNewFleetsToBeAdded() %> fleets left to add</h2>

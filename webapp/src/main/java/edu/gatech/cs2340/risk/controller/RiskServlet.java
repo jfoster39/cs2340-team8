@@ -190,6 +190,7 @@ import javax.servlet.http.HttpServletResponse;
             System.err.println("Caught NumberFormatException: " + e.getMessage());
         }
         currentPlayer = players.get(game.getTurn());
+  
         request.setAttribute("players", players);
         request.setAttribute("game", game);
         request.setAttribute("systems", systems);

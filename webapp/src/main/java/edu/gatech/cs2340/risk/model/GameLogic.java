@@ -14,7 +14,8 @@ public class GameLogic
     private int newFleetsAdded;
     private int round;
     private ArrayList<Planet> planets;
-    
+    private String log;
+
     public GameLogic (ArrayList<Player> players) {
     
         this.players = players;
@@ -38,6 +39,7 @@ public class GameLogic
         if(round != 0){
             newFleetsAdded = players.get(currentPlayer).calcMoreFleets();
         }
+        log = "";
     }
 
     public void attackPlanet(Planet defender, Planet attacker, int attackFleetAmount) {
@@ -50,14 +52,23 @@ public class GameLogic
         ArrayList<Integer> attackRolls = rollAndSort(attackDie);
         ArrayList<Integer> defendRolls = rollAndSort(defendDie);
 
+        log = "";
+        String appendage = "Attacker %s with a roll of %d against %d!";
+
         for (int i = 0; i < defendRolls.size(); i++) {
             if (defendRolls.get(i) >= attackRolls.get(i)) {
                 attacker.setFleets(attacker.getFleets()-1);
                 attacker.getOwner().setTotalFleets(attacker.getOwner().getFleets() - 1);
+                appendage = String.format("Attacker %s with a roll of %d against %d!",
+                 "lost", attackRolls.get(i), defendRolls.get(i));
+                logResult(appendage);
             }
             else {
                 defender.setFleets(defender.getFleets()-1);
                 defender.getOwner().setTotalFleets(defender.getOwner().getFleets() - 1);
+                appendage = String.format("Attacker %s with a roll of %d against %d!",
+                 "won", attackRolls.get(i), defendRolls.get(i));
+                logResult(appendage);
             }
         } 
 
@@ -68,6 +79,9 @@ public class GameLogic
             defender.setFleets(attackDie);
             int currentFleets = attacker.getFleets();
             attacker.setFleets(currentFleets-attackDie);
+            
+            String transferNote = String.format("Attacker has liberated planet %s!", defender.getName());
+            logResult(transferNote);
         }
 
     }
@@ -113,6 +127,14 @@ public class GameLogic
             rolls.add(rollDice());
         Collections.sort(rolls);
         return rolls;
+    }
+
+    private void logResult(String appendage) {
+        log += "\n" + appendage;
+    }
+
+    public String getLog() {
+        return log;
     }
 
     public int getNewFleetsToBeAdded() {
