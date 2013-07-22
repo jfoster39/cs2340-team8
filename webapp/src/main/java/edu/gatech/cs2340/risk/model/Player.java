@@ -27,7 +27,7 @@ public class Player {
 		numPlanets = 5; 
 		numStarSystems = 1;
 	}
-
+	
 	/**
 	* Getter method for the number of fleets associated with the player
 	* @return the number of fleets this player has
