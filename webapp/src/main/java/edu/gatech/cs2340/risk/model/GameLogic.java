@@ -39,7 +39,7 @@ public class GameLogic
         if(round != 0){
             newFleetsAdded = players.get(currentPlayer).calcMoreFleets();
         }
-        log = "";
+        log = "No attacks have been made.";
     }
 	
 	public boolean gameOver(){

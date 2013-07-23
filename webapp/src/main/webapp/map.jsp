@@ -128,7 +128,7 @@
               </select>
             </td>
             <td>
-                <input type="range" name="fleetAmount" min="1" max="<%=currentPlanet.getFleets()%>" maxlength="3" size="1" disabled>
+                <input type="text" name="fleetAmount" maxlength="3" size="1" disabled>
             </td>
             </form>
           </tr>  
@@ -155,6 +155,7 @@
           document.getElementsByName("viablePlanets")[i].disabled = false;
           document.getElementsByName("fleetAmount")[i].disabled = false;
         }
+
 		document.getElementById("End Turn").disabled = false;
 	 }
  </script>
