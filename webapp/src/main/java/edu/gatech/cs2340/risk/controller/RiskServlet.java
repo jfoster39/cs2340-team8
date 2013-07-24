@@ -120,15 +120,19 @@ import javax.servlet.http.HttpServletResponse;
 			System.out.println("Turn count: " + game.getTurn());
 			System.out.println("Game != null");
         }
-        currentPlayer = players.get(game.getTurn());
-		request.setAttribute("players", players);
-		request.setAttribute("game", game);
-		request.setAttribute("systems", systems);
-        request.setAttribute("currentPlayer", currentPlayer);
-        request.setAttribute("planets", planets);
-        RequestDispatcher dispatcher = 
-            getServletContext().getRequestDispatcher("/map.jsp");
-        dispatcher.forward(request,response);
+		if (game.gameOver()) {
+			response.sendRedirect("http://www.gifgrow.com/g/uTtUwm");
+		}else{
+			currentPlayer = players.get(game.getTurn());
+			request.setAttribute("players", players);
+			request.setAttribute("game", game);
+			request.setAttribute("systems", systems);
+			request.setAttribute("currentPlayer", currentPlayer);
+			request.setAttribute("planets", planets);
+			RequestDispatcher dispatcher = 
+				getServletContext().getRequestDispatcher("/map.jsp");
+			dispatcher.forward(request,response);
+		}
     }
     
     /**
@@ -190,7 +194,9 @@ import javax.servlet.http.HttpServletResponse;
             System.err.println("Caught NumberFormatException: " + e.getMessage());
         }
         currentPlayer = players.get(game.getTurn());
-  
+		if (game.gameOver()) {
+			response.sendRedirect("http://www.gifgrow.com/g/uTtUwm");
+		}else{
         request.setAttribute("players", players);
         request.setAttribute("game", game);
         request.setAttribute("systems", systems);
@@ -199,7 +205,7 @@ import javax.servlet.http.HttpServletResponse;
         RequestDispatcher dispatcher =
             getServletContext().getRequestDispatcher("/map.jsp");
                 dispatcher.forward(request, response);
-        
+        }
     }
 
 

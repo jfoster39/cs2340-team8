@@ -79,7 +79,7 @@
         <th scope="col">Fleet Source</th>
         <th scope="col">Fleet Amount</th>
       </tr>
-      <h1> System <%= (id+1) %></h1>
+      <h1 align="center"> System <%= (id+1) %></h1>
       
 	<% for (int k=0; k < currentSystem.getPlanets().size(); k++,j++) { %>
     <% Planet currentPlanet = currentSystem.getPlanets().get(k); %>
