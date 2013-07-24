@@ -188,7 +188,10 @@ public class GameLogic
     public int getTurn() {
         return turnCount;
     }
-	
+	 
+	public void setTurn(int newTurn) {
+        turnCount = newTurn;
+    }
 	public ArrayList<StarSystem> getAllSystems() {
 		return allSystems;
 	}

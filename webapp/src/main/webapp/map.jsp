@@ -16,7 +16,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Star Galaxy</title>
+  <title>Star System Risk</title>
   
   <script src="jquery.js"></script>
 

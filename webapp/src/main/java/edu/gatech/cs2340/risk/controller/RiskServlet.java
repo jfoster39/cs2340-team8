@@ -122,11 +122,19 @@ import javax.servlet.http.HttpServletResponse;
         }
 		
         currentPlayer = players.get(game.getTurn());
-		if (currentPlayer.getFleets() == 0) {
-			players.remove(game.getTurn());
-			game.update();
+		int newTurn = game.getTurn();
+		for(int i = 0; i < players.size(); i++) {
+			if (players.get(i).getFleets() == 0) {
+				players.remove(i);
+					if (i < game.getTurn())
+						newTurn--;
+			}
+		}
+		if (newTurn != game.getTurn()) { 
+			game.setTurn(newTurn);
 			currentPlayer = players.get(game.getTurn());
 		}
+			
 		request.setAttribute("players", players);
 		request.setAttribute("game", game);
 		request.setAttribute("systems", systems);
@@ -180,6 +188,7 @@ import javax.servlet.http.HttpServletResponse;
             System.err.println("Caught NumberFormatException: " + e.getMessage());
         }
         currentPlayer = players.get(game.getTurn());
+		
 		if (game.gameOver()) {
 			response.sendRedirect("http://www.gifgrow.com/g/uTtUwm");
 		}else{
