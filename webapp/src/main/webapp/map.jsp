@@ -103,8 +103,11 @@
 			var fleetButtons = document.getElementsByName("addNewFleets");
 			for (var i=0; i<fleetButtons.length; i++) {
 				if (<%= currentPlanet.getOwner().getName().equals(currentPlayer.getName()) %>) {
-          			fleetButtons[i].disabled = false;
+					fleetButtons[i].disabled = false;
         		}
+				else { 
+					fleetButtons[i].disabled = true; 
+				}
 			}
         	</script>	
             </td>

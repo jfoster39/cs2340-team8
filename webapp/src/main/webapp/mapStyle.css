@@ -19,6 +19,9 @@ span {
 }
 
 .planet {
+	text-align: center;
+	vertical-align: middle;
+	line-height: .8em;
 	position: absolute;
 	width: .8em; height: .8em; 
     -webkit-border-radius: 0.4em; -moz-border-radius: 0.4em;

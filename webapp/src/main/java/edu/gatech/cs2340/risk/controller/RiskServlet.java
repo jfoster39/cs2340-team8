@@ -26,9 +26,9 @@ import javax.servlet.http.HttpServletResponse;
 	public class RiskServlet extends HttpServlet {
 
     ArrayList<Player> players = new ArrayList<Player>();
-    GameLogic game;
     ArrayList<StarSystem> systems;
     Player currentPlayer;
+	GameLogic game;
     ArrayList<Planet> planets = new ArrayList<Planet>(15);
     
 

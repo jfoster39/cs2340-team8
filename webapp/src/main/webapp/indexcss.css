@@ -1,0 +1,35 @@
+#container {
+    overflow:hidden;
+    position:absolute;
+}
+#starScreen{
+    z-index:0;
+    background-color:black;
+}
+
+#text {
+	position:absolute;
+	z-index:1;
+	left: 280px;
+	top: 250px;
+	color: aquamarine;
+	font-weight:bold;
+	font-size:300%;
+	font-family:Courier New;
+}
+
+#click {
+	position:absolute;
+	z-index:1;
+	left: 465px;
+	top: 330px;
+	color: red;
+	font-weight:bold;
+	font-size:250%;
+	font-family:Courier New;
+}
+
+a:link {text-decoration: none; color: red;}
+a:visited {text-decoration: none; color: red;}
+a:active {text-decoration: none; color: red;}
+a:hover {text-decoration: none; color: red;} 

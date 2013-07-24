@@ -6,7 +6,6 @@ package edu.gatech.cs2340.risk.model;
 
 public class Planet
 {
-
     private Planet prevPlanet, nextPlanet;
     private Player owner;
     private int numFleets; 
