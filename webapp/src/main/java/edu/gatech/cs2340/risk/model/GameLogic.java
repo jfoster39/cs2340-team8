@@ -71,8 +71,16 @@ public class GameLogic
         log = "";
         String appendage = "Attacker %s with a roll of %d against %d!";
 
-        for (int i = 0; i < defendRolls.size(); i++) {
-            if (defendRolls.get(i) >= attackRolls.get(i)) {
+        for (int i = defendRolls.size() -1; i >= 0; i--) {
+            if(attackRolls.size() > defendRolls.size()){
+                if (defendRolls.get(i) >= attackRolls.get(i + 1)) {
+                    attacker.setFleets(attacker.getFleets()-1);
+                    attacker.getOwner().setTotalFleets(attacker.getOwner().getFleets() - 1);
+                    appendage = String.format("Attacker %s with a roll of %d against %d!",
+                    "lost", attackRolls.get(i), defendRolls.get(i));
+                    logResult(appendage);
+                }   
+            }else if (defendRolls.get(i) >= attackRolls.get(i)) {
                 attacker.setFleets(attacker.getFleets()-1);
                 attacker.getOwner().setTotalFleets(attacker.getOwner().getFleets() - 1);
                 appendage = String.format("Attacker %s with a roll of %d against %d!",
@@ -143,6 +151,22 @@ public class GameLogic
             rolls.add(rollDice());
         Collections.sort(rolls);
         return rolls;
+    }
+    /**
+    * This method does not have to return boolean, just thought it would make it easy on front end in case we wanted to throw
+    * a text to the player telling them they can't fortify a fleet from that planet
+    *
+    */
+
+    public boolean fortifyPlanet(Planet planetLosingFleet, Planet planetGainingFleet){
+    	  if(planetLosingFleet.getOwner().equals(planetGainingFleet.getOwner())){
+    	  		if(planetLosingFleet.getFleets() > 1){
+    	  			planetLosingFleet.setFleets(planetLosingFleet.getFleets() - 1);
+    	  			planetGainingFleet.setFleets(planetGainingFleet.getFleets() + 1);
+    	  			return true;
+    	  		}
+    	  }
+    	  return false;
     }
 
     private void logResult(String appendage) {
