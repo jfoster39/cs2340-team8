@@ -32,7 +32,7 @@ public class GameLogic
 
     public void update () {
         turnCount++;
-        if (turnCount == players.size()) {
+        if (turnCount >= players.size()) {
             turnCount = 0;
             round++;
         }

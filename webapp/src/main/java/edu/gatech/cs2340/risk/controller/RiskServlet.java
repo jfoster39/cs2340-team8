@@ -120,36 +120,22 @@ import javax.servlet.http.HttpServletResponse;
 			System.out.println("Turn count: " + game.getTurn());
 			System.out.println("Game != null");
         }
-		if (game.gameOver()) {
-			response.sendRedirect("http://www.gifgrow.com/g/uTtUwm");
-		}else{
+		
+        currentPlayer = players.get(game.getTurn());
+		if (currentPlayer.getFleets() == 0) {
+			players.remove(game.getTurn());
+			game.update();
 			currentPlayer = players.get(game.getTurn());
-			request.setAttribute("players", players);
-			request.setAttribute("game", game);
-			request.setAttribute("systems", systems);
-			request.setAttribute("currentPlayer", currentPlayer);
-			request.setAttribute("planets", planets);
-			RequestDispatcher dispatcher = 
-				getServletContext().getRequestDispatcher("/map.jsp");
-			dispatcher.forward(request,response);
 		}
-    }
-    
-    /**
-    protected void doTurn(HttpServletRequest request,
-                        HttpServletResponse response)
-            throws IOException, ServletException {
-        System.out.println("In doTurn()");
-        game.update();
-        request.setAttribute("players", players);
-        request.setAttribute("game", game);
-        request.setAttribute("systems", systems);
-       // players = request.getParameter("players");
+		request.setAttribute("players", players);
+		request.setAttribute("game", game);
+		request.setAttribute("systems", systems);
+        request.setAttribute("currentPlayer", currentPlayer);
+        request.setAttribute("planets", planets);
         RequestDispatcher dispatcher = 
             getServletContext().getRequestDispatcher("/map.jsp");
-        dispatcher.forward(request, response);
-    } 
-    **/
+        dispatcher.forward(request,response);
+    }
 
     protected void doAddFleetsToPlanet(HttpServletRequest request,
                                     HttpServletResponse response) 
@@ -219,35 +205,6 @@ import javax.servlet.http.HttpServletResponse;
         RequestDispatcher dispatcher =
             getServletContext().getRequestDispatcher("/map.jsp");
         dispatcher.forward(request, response);
-    }
-	
-    /**
-    protected void doPut(HttpServletRequest request,
-                         HttpServletResponse response)
-            throws IOException, ServletException {
-        System.out.println("In doPut()");
-        String name = (String) request.getParameter("name");
-        String color = (String)  request.getParameter("color");
-        int id = getId(request);
-        players.add(id, new Player(name, color));
-        request.setAttribute("players", players);
-        RequestDispatcher dispatcher = 
-            getServletContext().getRequestDispatcher("/playerSelection.jsp");
-        dispatcher.forward(request,response);
-    }
-    **/
-    
-
-    protected void doDelete(HttpServletRequest request,
-                            HttpServletResponse response)
-            throws IOException, ServletException {
-        System.out.println("In doDelete()");
-        int id = getId(request);
-        players.remove(id);
-        request.setAttribute("players", players);
-        RequestDispatcher dispatcher = 
-            getServletContext().getRequestDispatcher("/playerSelection.jsp");
-        dispatcher.forward(request,response);
     }
 
     private int getId(HttpServletRequest request) {
