@@ -181,18 +181,23 @@ import javax.servlet.http.HttpServletResponse;
 
     protected void doFortify(HttpServletRequest request,
                                     HttpServletResponse response) 
-                throws IOException, ServletException {
+                throws IOException, ServletException, NumberFormatException{
 
         System.out.println("In doFortify()");
-        int id = Integer.parseInt(request.getParameter("planetID"));
-        int fortifyPlanetID = Integer.parseInt(request.getParameter("fortifyPlanets"));
-        String currentPlayerName = request.getParameter("currentPlayer");
-        for (int i=0; i < planets.size(); i++ ) {
-            if (currentPlayerName.equals(currentPlayer.getName())) {
-                if ((i == id) && (planets.get(fortifyPlanetID-1).getFleets() > 1)) {
-                    game.fortifyPlanet(planets.get(fortifyPlanetID-1), planets.get(id));
+        try{
+            int id = Integer.parseInt(request.getParameter("planetID"));
+            int fortifyPlanetID = Integer.parseInt(request.getParameter("fortifyPlanets"));
+            String currentPlayerName = request.getParameter("currentPlayer");
+            for (int i=0; i < planets.size(); i++ ) {
+                if (currentPlayerName.equals(currentPlayer.getName())) {
+                    if ((i == id) && (planets.get(fortifyPlanetID-1).getFleets() > 1)) {
+                        game.fortifyPlanet(planets.get(fortifyPlanetID-1), planets.get(id));
+                    }
                 }
             }
+        }
+        catch(NumberFormatException e){
+            System.err.println("Caught NumberFormatException: " + e.getMessage());
         }
         currentPlayer = players.get(game.getTurn());
         request.setAttribute("players", players);
